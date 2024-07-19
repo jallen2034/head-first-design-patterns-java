@@ -1,3 +1,3 @@
-# Factory Design Pattern Example 🍕
+# Head First Design Patterns 🍕
 
-This repository contains a Java implementation of the Factory Design Pattern, demonstrating how to create objects without specifying the exact class of the object that will be created. The example includes different types of pizzas (New York style and Italian style) and their respective pizza stores. This project follows the principles outlined in "Head First Design Patterns" to showcase a practical application of the Factory Method.
+This repository contains Java implementations of the Factory Design Pattern and the Singleton Design Pattern, demonstrating how to create objects without specifying the exact class of the object that will be created and ensuring a class has only one instance. The examples include different types of pizzas (New York style and Italian style) and their respective pizza stores, as well as an example of the Singleton pattern. This project follows the principles outlined in "Head First Design Patterns" to showcase practical applications of both the Factory Method and Singleton Design Patterns.

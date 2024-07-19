@@ -15,5 +15,11 @@ public class Main {
         Pizza cheesePizzaNyStyle = nyPizzaStore.orderPizza("cheese");
         Pizza cheesePizzaItalianStyle = italianPizzaStore.orderPizza("cheese");
         Pizza pepperoniPizzaItalianStyle = italianPizzaStore.orderPizza("pepperoni");
+
+        // Log out our pizzas :)
+        System.out.println(pepperoniPizzaNYStyle);
+        System.out.println(cheesePizzaNyStyle);
+        System.out.println(cheesePizzaItalianStyle);
+        System.out.println(pepperoniPizzaItalianStyle);
     }
 }
