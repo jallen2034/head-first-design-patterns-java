@@ -32,7 +32,7 @@ public class Main {
         king.setWeaponBehaviour(new GunBehaviour());
         king.setSpeakBehaviour(new DialogueAfterShootingGun());
 
-        // Make the King empty his AR-15's magazine 4.
+        // Make the King empty his AR-15's magazine 4 times.
         for (int i = 0; i < fightCount; i++) {
             king.fight();
         }
