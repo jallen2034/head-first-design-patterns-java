@@ -29,6 +29,8 @@ public class Main {
         // Change the behaviors of the king (last in the array) at runtime.
         Character king = characters[characters.length - 1];
         king.display();
+
+        // We can upgrade him to a ASSAULT RIFLE! haha brrrr :D
         king.setWeaponBehaviour(new GunBehaviour());
         king.setSpeakBehaviour(new DialogueAfterShootingGun());
 
