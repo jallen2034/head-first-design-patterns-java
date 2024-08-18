@@ -7,7 +7,7 @@ import patterns.strategy.quack.Squeak;
  * display method and uses specific behaviors for quacking and flying. */
 public class RubberDuck extends Duck {
     // Constructor sets the behaviors for RubberDuck.
-    public RubberDuck() {
+    public  RubberDuck() {
         quackBehavior = new Squeak(); // Rubber ducks squeak.
         flyBehavior = new FlyNoWay(); // Rubber ducks can't fly.
     }

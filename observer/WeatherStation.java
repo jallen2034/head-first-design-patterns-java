@@ -1,38 +1,21 @@
 package patterns.observer;
 
-import java.util.ArrayList;
-import java.util.List;
+import patterns.observer.observers.CurrentConditionsDisplay;
+import patterns.observer.subject.WeatherData;
 
-public class WeatherStation implements Subject {
-    private List<Observer> observers;
-    private int temp;
-    private int humidity;
+public class WeatherStation {
+    public static void main(String[] args) {
+        // Create a WeatherData object (the Subject).
+        WeatherData weatherData = new WeatherData();
 
-    public WeatherStation() {
-        this.observers = new ArrayList<>();
-    }
+        // Create an observer for current conditions and register it with the WeatherData subject.
+        CurrentConditionsDisplay currentDisplay = new CurrentConditionsDisplay(weatherData);
 
-    @Override
-    public void registerObserver(Observer o) {
-        observers.add(o);
-    }
+        // TODO: Create and register two more observers: StatisticsDisplay and ForecastDisplay.
 
-    @Override
-    public void removeObserver(Observer o) {
-        int observerIndex = observers.indexOf(o); //Do I have this observer?
-        if (observerIndex >= 0) {
-            observers.remove(observerIndex);
-        }
-    }
-
-    @Override
-    public void notifyObservers() {
-        observers.forEach(o -> o.update(temp, humidity));
-    }
-
-    public void measurementsChanged(int temp, int humidity) {
-        this.temp = temp;
-        this.humidity = humidity;
-        notifyObservers();
+        // Simulate new weather measurements; the WeatherData subject will notify all registered observers.
+        weatherData.setMeasurements(80, 65, 30.4f);
+        weatherData.setMeasurements(82, 70, 29.2f);
+        weatherData.setMeasurements(78, 90, 29.2f);
     }
 }
