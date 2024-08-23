@@ -1,6 +1,7 @@
 package patterns.observer;
 
 import patterns.observer.observers.CurrentConditionsDisplay;
+import patterns.observer.observers.CurrentStatisticsDisplay;
 import patterns.observer.subject.WeatherData;
 
 public class WeatherStation {
@@ -8,10 +9,9 @@ public class WeatherStation {
         // Create a WeatherData object (the Subject).
         WeatherData weatherData = new WeatherData();
 
-        // Create an observer for current conditions and register it with the WeatherData subject.
+        // Create observers for current conditions + current stats. Register these with the WeatherData subject.
         CurrentConditionsDisplay currentDisplay = new CurrentConditionsDisplay(weatherData);
-
-        // TODO: Create and register two more observers: StatisticsDisplay and ForecastDisplay.
+        CurrentStatisticsDisplay currentStatisticsDisplay = new CurrentStatisticsDisplay(weatherData);
 
         // Simulate new weather measurements; the WeatherData subject will notify all registered observers.
         weatherData.setMeasurements(80, 65, 30.4f);
