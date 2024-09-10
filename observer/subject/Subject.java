@@ -1,8 +1,8 @@
 package patterns.observer.subject;
-import patterns.observer.observers.Observer;
+import patterns.observer.observers.Update;
 
 public interface Subject {
-    public void registerObserver(Observer observer);
-    public void removeObserver(Observer observer);
+    public void registerObserver(Update observer);
+    public void removeObserver(Update observer);
     public void notifyObservers();
 }
