@@ -5,7 +5,7 @@ import patterns.observer.subject.WeatherData;
 /* This display class implements the Observer interface, allowing it to receive updates
  * from the WeatherData (Subject) object. It also implements the DisplayElement interface
  * to standardize the way the weather data is presented. */
-public class CurrentConditionsDisplay implements Observer, DisplayElement {
+public class CurrentConditionsDisplay implements Update, DisplayElement {
     // Stores the current temperature and humidity values received from the Subject.
     private float temperature;
     private float humidity;
