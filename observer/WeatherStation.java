@@ -1,23 +1,45 @@
 package patterns.observer;
 
-import patterns.observer.observers.CurrentConditionsDisplay;
-import patterns.observer.observers.CurrentStatisticsDisplay;
-import patterns.observer.observers.HeatIndexDisplay;
+import patterns.observer.observers.DisplayElement;
 import patterns.observer.subject.WeatherData;
+import java.util.ArrayList;
+import java.util.List;
 
 public class WeatherStation {
-    public static void main(String[] args) {
-        // Create a WeatherData object (the Subject).
-        WeatherData weatherData = new WeatherData();
+    private final WeatherData weatherData;
+    private final List<DisplayElement> displays;
 
-        // Create observers for current conditions + current stats. Register these with the WeatherData subject.
-        CurrentConditionsDisplay currentDisplay = new CurrentConditionsDisplay(weatherData);
-        CurrentStatisticsDisplay currentStatisticsDisplay = new CurrentStatisticsDisplay(weatherData);
-        HeatIndexDisplay heatIndexDisplay = new HeatIndexDisplay(weatherData);
+    public WeatherStation() {
+        this.weatherData = new WeatherData();
+        this.displays = new ArrayList<>();
+    }
 
-        // Simulate new weather measurements; the WeatherData subject will notify all registered observers.
-        weatherData.setMeasurements(80, 65, 30.4f);
-        weatherData.setMeasurements(82, 70, 29.2f);
-        weatherData.setMeasurements(78, 90, 29.2f);
+    public void addMultipleDisplays(List<DisplayElement> displayElements) {
+        displays.addAll(displayElements);
+    }
+
+    public WeatherData getWeatherData() {
+        return weatherData;
+    }
+
+    public void recordWeatherData(float temperature, float humidity, float pressure) {
+        // Set the measurements for the new temp measurements to the WeatherStation Subject + notify observers of this.
+        weatherData.setMeasurements(temperature, humidity, pressure);
+
+        // Then display the results in the observers they just picked up from the subject.
+        displayAllReadings();
+    }
+
+    private void displayAllReadings() {
+        displays.forEach(DisplayElement::display);
+    }
+
+    // Weather reading record to encapsulate weather data
+    public record WeatherReading(float temperature, float humidity, float pressure) {}
+
+    public void recordMultipleReadings(List<WeatherReading> readings) {
+        readings.forEach(reading ->
+                recordWeatherData(reading.temperature, reading.humidity, reading.pressure)
+        );
     }
 }

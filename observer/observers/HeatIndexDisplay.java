@@ -17,12 +17,9 @@ public class HeatIndexDisplay implements Update, DisplayElement {
         weatherData.registerObserver(this);
     }
 
-
-    /* Updates the heat index based on new temperature and humidity values,
-     * then displays the updated heat index. */
+    /* Updates the heat index based on new temperature and humidity values */
     public void update(float temp, float humidity, float pressure) {
         heatIndex = computeHeatIndex(temp, humidity);
-        display();
     }
 
     /* Calculates the heat index based on the temperature and humidity values

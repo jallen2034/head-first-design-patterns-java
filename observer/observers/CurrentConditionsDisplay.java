@@ -21,11 +21,10 @@ public class CurrentConditionsDisplay implements Update, DisplayElement {
     }
 
     /* Called by the Subject (WeatherData) whenever the state changes. Updates the
-     * internal state with the new temperature and humidity, then displays the data. */
+     * internal state with the new temperature and humidity. */
     public void update(float temperature, float humidity, float pressure) {
         this.temperature = temperature;
         this.humidity = humidity;
-        display();
     }
 
     // Displays the current temperature and humidity to the console.

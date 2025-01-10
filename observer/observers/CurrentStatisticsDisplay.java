@@ -31,8 +31,6 @@ public class CurrentStatisticsDisplay implements Update, DisplayElement {
         if (temperature < minTemp) {
             minTemp = temperature;
         }
-
-        display();
     }
 
     // Displays the current temperature and humidity to the console.

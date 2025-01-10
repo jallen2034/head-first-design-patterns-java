@@ -7,7 +7,7 @@ import java.util.List;
 /* WeatherData acts as the Subject in the Observer pattern, managing a list
  * of observers and notifying them whenever the weather data changes. */
 public class WeatherData implements Subject {
-    private List<Update> observers;  // Holds all registered observers.
+    private final List<Update> observers;  // Holds all registered observers.
     private float temperature;
     private float humidity;
     private float pressure;
@@ -39,8 +39,7 @@ public class WeatherData implements Subject {
         this.temperature = temperature;
         this.humidity = humidity;
         this.pressure = pressure;
+
         notifyObservers();
     }
-
-    // TODO: Additional weather data management methods can be added here.
 }
