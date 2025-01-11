@@ -1,11 +1,9 @@
-package patterns.observer.observers;
+package patterns.observer.displayFactory.displays.DewPointDisplay;
 
+import patterns.observer.displayFactory.displays.Display;
 import patterns.observer.subject.WeatherData;
 
-/* This class calculates and displays the dew point, which represents the temperature at which air becomes saturated
- * with moisture (100% relative humidity). It is a critical weather metric for predicting comfort levels, fog, or frost.
- * The dew point is updated whenever new weather data (temperature, humidity, and pressure) is available from the WeatherData subject. */
-public class DewPointDisplay implements Update, DisplayElement {
+public class DewPointDisplay extends Display {
     private float dewPoint = 0.0f;  // Stores the current dew point value
 
     // Holds a reference to the WeatherData subject, allowing un-registration if needed

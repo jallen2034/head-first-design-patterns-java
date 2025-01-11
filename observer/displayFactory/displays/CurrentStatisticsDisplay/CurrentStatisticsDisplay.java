@@ -1,8 +1,9 @@
-package patterns.observer.observers;
+package patterns.observer.displayFactory.displays.CurrentStatisticsDisplay;
 
+import patterns.observer.displayFactory.displays.Display;
 import patterns.observer.subject.WeatherData;
 
-public class CurrentStatisticsDisplay implements Update, DisplayElement {
+public class CurrentStatisticsDisplay extends Display {
     // Tracks the highest, lowest, and average temperature statistics based on recorded readings.
     private float maxTemp = 0.0f;
     private float minTemp = 200;

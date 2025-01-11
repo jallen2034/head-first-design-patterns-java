@@ -1,13 +1,12 @@
 package patterns.observer.subject;
-
-import patterns.observer.observers.Update;
+import patterns.observer.displayFactory.displays.Display;
 import java.util.ArrayList;
 import java.util.List;
 
 /* WeatherData acts as the Subject in the Observer pattern, managing a list
  * of observers and notifying them whenever the weather data changes. */
-public class WeatherData implements Subject {
-    private final List<Update> observers;  // Holds all registered observers.
+public class WeatherData {
+    private final List<Display> observers;  // Holds all registered observers.
     private float temperature;
     private float humidity;
     private float pressure;
@@ -18,18 +17,14 @@ public class WeatherData implements Subject {
     }
 
     // Adds a new observer to the list of observers.
-    public void registerObserver(Update observer) {
+    public void registerObserver(Display observer) {
         observers.add(observer);
     }
 
-    // Removes an observer from the list of observers.
-    public void removeObserver(Update observer) {
-        observers.remove(observer);
-    }
 
     // Notifies all registered observers of any changes to the weather data.
-    public void notifyObservers() {
-        for (Update observer : observers) {
+    public void notifyDisplayObserversOfChange() {
+        for (Display observer : observers) {
             observer.update(temperature, humidity, pressure);
         }
     }
@@ -40,6 +35,6 @@ public class WeatherData implements Subject {
         this.humidity = humidity;
         this.pressure = pressure;
 
-        notifyObservers();
+        notifyDisplayObserversOfChange();
     }
 }
