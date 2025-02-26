@@ -1,4 +1,4 @@
-package patterns.decorator;
+package patterns.decorator.firstExample;
 
 public class WithMilk extends CoffeeDecorator {
 
