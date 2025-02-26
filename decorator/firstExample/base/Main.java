@@ -1,18 +1,18 @@
-package patterns.decorator.base;
+package patterns.decorator.firstExample.base;
 
-import patterns.decorator.Coffee;
-import patterns.decorator.Espresso;
-import patterns.decorator.WithMilk;
-import patterns.decorator.WithSugar;
+import patterns.decorator.firstExample.Coffee;
+import patterns.decorator.firstExample.Espresso;
+import patterns.decorator.firstExample.WithMilk;
+import patterns.decorator.firstExample.WithSugar;
 
 public class Main {
     public static void main(String[] args) {
 
         Coffee espresso = new Espresso();
-//        printCoffee(espresso);
+        printCoffee(espresso);
 
         espresso = new WithMilk(espresso);
-//        printCoffee(espresso);
+        printCoffee(espresso);
 
         espresso = new WithSugar(espresso);
         espresso = new WithSugar(espresso);

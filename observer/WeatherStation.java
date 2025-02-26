@@ -11,17 +11,19 @@ public class WeatherStation {
     private final List<Display> displays;
 
     public List<Display> createDisplays() {
-        // List to collect all created displays.
+        // List of display types to create
+        List<String> displayTypes = List.of("currentConditions", "statistics", "heatIndex", "dewPoint");
+
+        // List to collect all created displays
         List<Display> displays = new ArrayList<>();
         DisplayStore displayStore = new WeatherDisplayFactory(this.weatherData);
 
-        // Use the factory to create displays by type.
-        displays.add(displayStore.orderDisplay("currentConditions"));
-        displays.add(displayStore.orderDisplay("statistics"));
-        displays.add(displayStore.orderDisplay("heatIndex"));
-        displays.add(displayStore.orderDisplay("dewPoint"));
+        // Use the factory to create displays dynamically
+        for (String type : displayTypes) {
+            displays.add(displayStore.orderDisplay(type));
+        }
 
-        return displays; // Return the created displays.
+        return displays; // Return the created displays
     }
 
     /* Creates and returns a list of sample weather readings.

@@ -1,4 +1,4 @@
-package patterns.decorator;
+package patterns.decorator.firstExample;
 
 
 public abstract class Coffee {
