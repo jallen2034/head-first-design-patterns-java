@@ -11,8 +11,8 @@ public class Main {
 
     public static void main(String[] args) {
         //Example 1 - Empty slots
-        AlexaDevice alexa = new AlexaDevice();
-        System.out.println(alexa);
+//        AlexaDevice alexa = new AlexaDevice();
+//        System.out.println(alexa);
 
 //      ---------------------------------------------------------------
 
@@ -37,23 +37,23 @@ public class Main {
 //      ---------------------------------------------------------------
 
         //Example 3 - Everything on!
-//        AlexaDevice alexa = new AlexaDevice();
-//
-//        //Create an instance
-//        KitchenLights kitchenLights = new KitchenLights();
-//        Music music = new Music();
-//
-//        //Set the slots with new commands
-//        alexa.setCommand(
-//                1,
-//                new EverythingOnCommand(music, kitchenLights),
-//                new EverythingOffCommand(music, kitchenLights)
-//        );
-//
-//        System.out.println(alexa);
-//
-//        alexa.activateSlot(1);
-//        alexa.deactivateSlot(1);
+        AlexaDevice alexa = new AlexaDevice();
+
+        //Create an instance
+        KitchenLights kitchenLights = new KitchenLights();
+        Music music = new Music();
+
+        //Set the slots with new commands
+        alexa.setCommand(
+                1,
+                new EverythingOnCommand(music, kitchenLights),
+                new EverythingOffCommand(music, kitchenLights)
+        );
+
+        System.out.println(alexa);
+
+        alexa.activateSlot(1);
+        alexa.deactivateSlot(1);
 
     }
 }

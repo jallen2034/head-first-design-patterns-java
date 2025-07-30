@@ -6,7 +6,7 @@ public class KitchenLightsOnCommand implements Command {
     KitchenLights kitchenLights;
 
     public KitchenLightsOnCommand(KitchenLights kitchenLights) {
-        this.kitchenLights= kitchenLights;
+        this.kitchenLights = kitchenLights;
     }
 
     @Override

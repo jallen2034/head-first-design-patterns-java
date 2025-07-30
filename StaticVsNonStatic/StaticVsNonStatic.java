@@ -54,13 +54,13 @@ public class StaticVsNonStatic {
             System.out.println("Created " + carColors[i] + " car at memory address: " + cars[i].toString());
         }
 
-        // Print car objects after creation
+        // Print car objects after creation.
         printCarDetails(cars);
 
         // Usage of modifying the launch speed of multiple objects into the heap of different car types.
         this.launchCars(cars);
 
-        // Print car details after acceleration
+        // Print car details after acceleration.
         printCarDetails(cars);
 
         System.out.println("\n=== REGISTERING CARS ===");
