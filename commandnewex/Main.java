@@ -34,7 +34,6 @@ public class Main {
         Xbox xbox = new Xbox();
         Television television = new Television();
 
-
         CommandSetup[] commandSetups = {
                 new CommandSetup(GamingSetupCommandSlot,
                         new TurnOnGamingSetup(xbox, television, soundSystem),

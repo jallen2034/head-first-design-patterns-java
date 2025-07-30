@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/FirstDesignPuzzle/FirstDesignPuzzle.iml" filepath="$PROJECT_DIR$/FirstDesignPuzzle/FirstDesignPuzzle.iml" />
+      <module fileurl="file://$PROJECT_DIR$/command2/hardware.iml" filepath="$PROJECT_DIR$/command2/hardware.iml" />
       <module fileurl="file://$PROJECT_DIR$/patterns.iml" filepath="$PROJECT_DIR$/patterns.iml" />
       <module fileurl="file://$PROJECT_DIR$/untitled.iml" filepath="$PROJECT_DIR$/untitled.iml" />
     </modules>
