@@ -1,51 +1,49 @@
 package patterns.commandnewex;
-
 import patterns.commandnewex.commands.Command;
-import patterns.commandnewex.commands.NoOpCommand;
+import java.util.Stack;
 
 public class SmartRemote {
-    Command[] onCommands;
-    Command[] offCommands;
+    Stack<Command> onCommands = new Stack<>();
+    Stack<Command> offCommands = new Stack<>();
 
-    int slots = 5;
-
-    public SmartRemote() {
-        onCommands = new Command[slots];
-        offCommands = new Command[slots];
-
-        // Null guard checks.
-        for (int i = 0; i < slots; i++) {
-            onCommands[i] = new NoOpCommand();
-            offCommands[i] = new NoOpCommand();
+    public void pushAndActivate(Command onCommand, Command offCommand) {
+        if (!onCommands.isEmpty() && !offCommands.isEmpty()) {
+            Command currentOffCommand = offCommands.peek();
+            currentOffCommand.execute();
         }
+
+        onCommands.push(onCommand);
+        offCommands.push(offCommand);
+
+        onCommand.execute();
     }
 
-    // Load our desired commands into our slots.
-    public void setCommand(int slot, Command onCommand, Command offCommand) {
-        if (onCommand == null || offCommand == null) {
-            throw new NullPointerException("onCommand or offCommand is null");
+    public void undo() {
+        if (onCommands.isEmpty() && offCommands.isEmpty()) {
+            System.out.println("Nothing to undo");
+            return;
+        }
+
+        Command currentOffCommand = offCommands.pop();
+        currentOffCommand.execute();
+
+        onCommands.pop();
+
+        if (!offCommands.isEmpty() && !onCommands.isEmpty()) {
+            Command previousOnCommand = onCommands.peek();
+            previousOnCommand.execute();
+            return;
+        }
+
+        System.out.println("System returned to default state");
+    }
+
+    public void printStackInfo() {
+        System.out.println(">>> Stack size: " + onCommands.size() + " commands in history");
+        if (!onCommands.isEmpty()) {
+            System.out.println(">>> Current active: " + onCommands.peek().getClass().getSimpleName());
         } else {
-            onCommands[slot] = onCommand;
-            offCommands[slot] = offCommand;
+            System.out.println(">>> No active commands (default state)");
         }
-    }
-
-    public void activateSlot(int slot) {
-        onCommands[slot].execute();
-    }
-
-    public void deactivateSlot(int slot) {
-        offCommands[slot].execute();
-    }
-
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("\n-------- Media Remote Controller --------\n");
-        for (int i = 0; i < slots; i++) {
-            sb.append("Slot #" + i + " - " + onCommands[i].getClass().getSimpleName() + "(" + onCommands[i].getClass().getSimpleName() + ")" +
-                    " - " + offCommands[i].getClass().getSimpleName() + "(" + offCommands[i].getClass().getSimpleName() + ")" +
-                    "\n");
-        }
-        return sb.toString();
     }
 }

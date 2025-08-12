@@ -4,7 +4,7 @@ import patterns.commandnewex.hardware.DVDPlayer;
 import patterns.commandnewex.hardware.SoundSystem;
 import patterns.commandnewex.hardware.Television;
 
-public class TurnOnHomeTheatreSetup  implements Command {
+public class TurnOnHomeTheatreSetup implements Command {
     SoundSystem soundSystem;
     Television television;
     DVDPlayer dvdPlayer;
